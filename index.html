@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>CW Blue Room</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      background: #05070a;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    #blue-room {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at center, #16263a 0%, #08111d 45%, #030507 100%);
+    }
+
+    .room-frame {
+      position: relative;
+      width: min(100vw, 177.78vh);
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #0b1522;
+    }
+
+    .room-background {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .asset {
+      position: absolute;
+      z-index: 10;
+      cursor: pointer;
+      transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+    }
+
+    .asset:hover {
+      transform: scale(1.04);
+      filter: brightness(1.12);
+    }
+
+    #microphone {
+      left: 47%;
+      top: 37%;
+      width: 7%;
+    }
+
+    #fedora {
+      left: 47.5%;
+      top: 31%;
+      width: 8%;
+      z-index: 11;
+    }
+
+    #hat-display {
+      left: 6%;
+      top: 20%;
+      width: 22%;
+    }
+
+    #chair {
+      right: 12%;
+      bottom: 13%;
+      width: 16%;
+    }
+
+    #side-table {
+      right: 3%;
+      bottom: 15%;
+      width: 10%;
+    }
+
+    #cigar {
+      right: 6%;
+      bottom: 29%;
+      width: 7%;
+      z-index: 12;
+    }
+
+    #decanter {
+      right: 2%;
+      bottom: 29%;
+      width: 8%;
+      z-index: 12;
+    }
+
+    #vip {
+      right: 1%;
+      top: 15%;
+      width: 18%;
+    }
+
+    .loading-message {
+      position: absolute;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #05070a;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 14px;
+      transition: opacity 1s ease;
+    }
+
+    .loading-message.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .room-frame {
+        width: 100vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main id="blue-room">
+
+    <div class="room-frame">
+
+      <!--
+        BLUE ROOM BACKGROUND
+        We will connect your actual room image here next.
+      -->
+      <img
+        class="room-background"
+        src="assets/blue-room-bg.png"
+        alt="CW Blue Room"
+      />
+
+      <!-- MICROPHONE -->
+      <img
+        id="microphone"
+        class="asset"
+        src="assets/microphone.png"
+        alt="CW Microphone"
+      />
+
+      <!-- FEDORA -->
+      <img
+        id="fedora"
+        class="asset"
+        src="assets/fedora.png"
+        alt="CW Fedora"
+      />
+
+      <!-- HAT DISPLAY -->
+      <img
+        id="hat-display"
+        class="asset"
+        src="assets/hat-display.png"
+        alt="CW Hat Collection"
+      />
+
+      <!-- VELVET CHAIR -->
+      <img
+        id="chair"
+        class="asset"
+        src="assets/chair.png"
+        alt="Velvet Lounge Chair"
+      />
+
+      <!-- SIDE TABLE -->
+      <img
+        id="side-table"
+        class="asset"
+        src="assets/side-table.png"
+        alt="Side Table"
+      />
+
+      <!-- CIGAR + ASHTRAY -->
+      <img
+        id="cigar"
+        class="asset"
+        src="assets/cigar-ashtray.png"
+        alt="Cigar and Ashtray"
+      />
+
+      <!-- DECANTER + GLASS -->
+      <img
+        id="decanter"
+        class="asset"
+        src="assets/decanter-glass.png"
+        alt="Decanter and Cocktail Glass"
+      />
+
+      <!-- VIP ENTRANCE -->
+      <img
+        id="vip"
+        class="asset"
+        src="assets/vip-entrance.png"
+        alt="VIP Backstage"
+      />
+
+      <div class="loading-message" id="loading">
+        Entering The Blue Room
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        document.getElementById("loading").classList.add("hide");
+      }, 1200);
+    });
+
+    document.getElementById("fedora").addEventListener("click", function () {
+      console.log("Hat Collection clicked");
+    });
+
+    document.getElementById("microphone").addEventListener("click", function () {
+      console.log("Music clicked");
+    });
+
+    document.getElementById("hat-display").addEventListener("click", function () {
+      console.log("Hat Display clicked");
+    });
+
+    document.getElementById("vip").addEventListener("click", function () {
+      console.log("VIP clicked");
+    });
+  </script>
+
+</body>
+</html>
